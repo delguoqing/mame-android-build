@@ -1198,9 +1198,10 @@ android-ndk:
 ifndef ANDROID_NDK_HOME
 	$(error ANDROID_NDK_HOME is not set)
 endif
-ifndef SDL_INSTALL_ROOT
-	$(error SDL_INSTALL_ROOT is not set)
-endif
+# Do we need SDL_INSTALL_ROOT for myosd?
+# ifndef SDL_INSTALL_ROOT
+# 	$(error SDL_INSTALL_ROOT is not set)
+# endif
 ifeq ($(OS),windows)
 	$(eval CLANG_VERSION := $(shell $(ANDROID_NDK_HOME)/toolchains/llvm/prebuilt/windows-x86_64/bin/clang -dumpversion 2> /dev/null))
 else ifeq ($(OS),linux)
