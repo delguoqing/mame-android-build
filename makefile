@@ -23,7 +23,7 @@
 # EMULATOR = 1
 # TESTS = 1
 # BENCHMARKS = 1
-# OSD = sdl
+OSD = myosd
 
 # NO_OPENGL = 0
 # USE_DISPATCH_GL = 0
@@ -1227,13 +1227,13 @@ android-arm: android-ndk generate $(PROJECTDIR_SDL)/$(MAKETYPE)-android-arm/Make
 # android-arm64
 #-------------------------------------------------
 
-$(PROJECTDIR_SDL)/$(MAKETYPE)-android-arm64/Makefile: makefile $(SCRIPTS) $(GENIE)
-	$(SILENT) $(GENIE) $(PARAMS) --gcc=android-arm64 --gcc_version=$(CLANG_VERSION) --osd=sdl --targetos=android --PLATFORM=arm64 --NOASM=1 $(MAKETYPE)
+$(PROJECTDIR)/$(MAKETYPE)-android-arm64/Makefile: makefile $(SCRIPTS) $(GENIE)
+	$(SILENT) $(GENIE) $(PARAMS) --gcc=android-arm64 --gcc_version=$(CLANG_VERSION) --osd=myosd --targetos=android --PLATFORM=arm64 --NOASM=1 $(MAKETYPE)
 
 .PHONY: android-arm64
-android-arm64: android-ndk generate $(PROJECTDIR_SDL)/$(MAKETYPE)-android-arm64/Makefile
-	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR_SDL)/$(MAKETYPE)-android-arm64 config=$(CONFIG) precompile
-	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR_SDL)/$(MAKETYPE)-android-arm64 config=$(CONFIG)
+android-arm64: android-ndk generate $(PROJECTDIR)/$(MAKETYPE)-android-arm64/Makefile
+	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR)/$(MAKETYPE)-android-arm64 config=$(CONFIG) precompile
+	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR)/$(MAKETYPE)-android-arm64 config=$(CONFIG)
 
 #-------------------------------------------------
 # android-x86
