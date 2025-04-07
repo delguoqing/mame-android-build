@@ -554,8 +554,7 @@ VAES_COMPAT_STUB (AesCtr_Code_HW)
 #endif // ! USE_INTEL_VAES
 
 
-#elif defined(MY_CPU_ARM_OR_ARM64) && defined(MY_CPU_LE)
-
+#elif defined(MY_CPU_ARM_OR_ARM64) && defined(MY_CPU_LE) && !defined(__ANDROID__)
   #if defined(__clang__)
     #if (__clang_major__ >= 8) // fix that check
       #define USE_HW_AES
