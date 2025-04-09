@@ -93,6 +93,11 @@ if _OPTIONS["gcc"]~=nil then
 	end
 end
 
+	configuration { "android*" }
+		defines {
+			"HAVE_GETRANDOM", -- getrandom is added in android 9.0+, https://android.googlesource.com/platform/bionic/+/android-9.0.0_r22/docs/status.md#libc
+		}
+
 	configuration { }
 
 	files {

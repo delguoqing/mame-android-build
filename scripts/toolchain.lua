@@ -72,7 +72,7 @@ function toolchain(_buildDir, _subDir)
 
 	location (_buildDir .. "projects/" .. _subDir .. "/".. _ACTION)
 
-	local androidApiLevel = 24
+	local androidApiLevel = 28
 	if _OPTIONS["with-android"] then
 		androidApiLevel = _OPTIONS["with-android"]
 	end
