@@ -256,7 +256,7 @@ extern "C" void myosd_pushEvent(myosd_inputevent event)
                         1,
                         1,
                         event.data.pointer_data.x, event.data.pointer_data.y,
-                        1, 0, 0, event.data.pointer_data.double_action ? 2 : 1);
+                        1, 1, 0, event.data.pointer_data.double_action ? 2 : 1);
                 break;
             }
             case event.MYOSD_FINGER_DOWN:
@@ -349,7 +349,8 @@ extern "C" void myosd_set(int var, intptr_t value)
             //myosd_speed = value;
             break;
         case MYOSD_VERSION:
-            emulator_info::myosd_droid_version = (char*)(void*)value;
+            // actually not used here...
+            //emulator_info::myosd_droid_version = (char*)(void*)value;
             break;
     }
 }

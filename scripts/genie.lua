@@ -1,7 +1,6 @@
 -- license:BSD-3-Clause
 -- copyright-holders:MAMEdev Team
 STANDALONE = false
-
 -- Big project specific
 premake.make.makefile_ignore = true
 premake._checkgenerate = false
@@ -1454,6 +1453,7 @@ end
 
 group "libs"
 
+print("ddd"..path.join("src", "osd",  _OPTIONS["osd"] .. ".lua"))
 if (not os.isfile(path.join("src", "osd",  _OPTIONS["osd"] .. ".lua"))) then
 	error("Unsupported value '" .. _OPTIONS["osd"] .. "' for OSD")
 end

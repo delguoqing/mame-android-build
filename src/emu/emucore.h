@@ -301,8 +301,8 @@ template<class Dest, class Source>
 inline Dest downcast(Source &src)
 {
 #if defined(MAME_DEBUG)
-	std::remove_reference_t<Dest> *const chk(dynamic_cast<std::remove_reference_t<Dest> *>(&src));
-	if (chk != &src) report_bad_cast<std::remove_reference_t<Dest>, Source>(&src);
+	// std::remove_reference_t<Dest> *const chk(dynamic_cast<std::remove_reference_t<Dest> *>(&src));
+	// if (chk != &src) report_bad_cast<std::remove_reference_t<Dest>, Source>(&src);
 #endif
 	return static_cast<Dest>(src);
 }

@@ -20,6 +20,9 @@ The rom banking address is either $6000 or $7ffe depending on the
 version of the hardware.
 
 */
+#ifdef __ANDROID__
+#undef PAGE_SIZE
+#endif
 
 namespace {
 

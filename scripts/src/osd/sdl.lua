@@ -327,7 +327,8 @@ project ("qtdbg_" .. _OPTIONS["osd"])
 	configuration { }
 
 	qtdebuggerbuild()
-
+print("fuck")
+print(debug.traceback())
 project ("osd_" .. _OPTIONS["osd"])
 	targetsubdir(_OPTIONS["target"] .."_" .._OPTIONS["subtarget"])
 	uuid (os.uuid("osd_" .. _OPTIONS["osd"]))
@@ -407,6 +408,7 @@ project ("osd_" .. _OPTIONS["osd"])
 	}
 
 project ("ocore_" .. _OPTIONS["osd"])
+	print("SDL------------------------------------")
 	targetsubdir(_OPTIONS["target"] .."_" .. _OPTIONS["subtarget"])
 	uuid (os.uuid("ocore_" .. _OPTIONS["osd"]))
 	kind (LIBTYPE)

@@ -13,13 +13,13 @@
 ###########################################################################
 
 # REGENIE = 1
-# VERBOSE = 1
+VERBOSE = 1
 # NOWERROR = 1
 # IGNORE_GIT = 1
 
-# TARGET = mame
-# SUBTARGET = tiny
-# TOOLS = 1
+TARGET = mame
+SUBTARGET = tiny
+TOOLS = 0
 # EMULATOR = 1
 # TESTS = 1
 # BENCHMARKS = 1
@@ -43,7 +43,7 @@ OSD = myosd
 # NO_USE_XINPUT_WII_LIGHTGUN_HACK = 1
 # FORCE_DRC_C_BACKEND = 1
 
-# DEBUG = 1
+DEBUG = 1
 # PROFILER = 1
 # SANITIZE =
 
@@ -51,10 +51,10 @@ OSD = myosd
 # BIGENDIAN = 1
 # NOASM = 1
 
-# OPTIMIZE = 3
-# SYMBOLS = 1
-# SYMLEVEL = 2
-# MAP = 1
+OPTIMIZE = 0
+SYMBOLS = 1
+SYMLEVEL = 2
+MAP = 1
 # PROFILE = 1
 # ARCHOPTS =
 # ARCHOPTS_C =
@@ -80,13 +80,13 @@ OSD = myosd
 # USE_SYSTEM_LIB_PUGIXML = 1
 
 # MESA_INSTALL_ROOT = /opt/mesa
-# SDL_INSTALL_ROOT = /opt/sdl2
+# SDL_INSTALL_ROOT = /mingw64
 # SDL_FRAMEWORK_PATH = $(HOME)/Library/Frameworks
 # USE_LIBSDL = 1
 # CYGWIN_BUILD = 1
 
-# BUILDDIR = build
-# TARGETOS = windows
+BUILDDIR = build
+# TARGETOS = android
 # CROSS_BUILD = 1
 # TOOLCHAIN =
 # OVERRIDE_CC = cc
@@ -497,6 +497,8 @@ ifeq ($(TARGETOS),asmjs)
 OSD := sdl
 endif
 endif
+
+OSD := myosd
 
 #-------------------------------------------------
 # which 3rdparty library to build;
@@ -1198,12 +1200,11 @@ android-ndk:
 ifndef ANDROID_NDK_HOME
 	$(error ANDROID_NDK_HOME is not set)
 endif
-# Do we need SDL_INSTALL_ROOT for myosd?
 # ifndef SDL_INSTALL_ROOT
 # 	$(error SDL_INSTALL_ROOT is not set)
 # endif
 ifeq ($(OS),windows)
-	$(eval CLANG_VERSION := $(shell $(ANDROID_NDK_HOME)/toolchains/llvm/prebuilt/windows-x86_64/bin/clang -dumpversion 2> /dev/null))
+	$(eval CLANG_VERSION := $(shell $(ANDROID_NDK_HOME)\toolchains\llvm\prebuilt\windows-x86_64\bin\clang -dumpversion 2> null))
 else ifeq ($(OS),linux)
 	$(eval CLANG_VERSION := $(shell $(ANDROID_NDK_HOME)/toolchains/llvm/prebuilt/linux-x86_64/bin/clang -dumpversion 2> /dev/null))
 else ifeq ($(OS),macosx)
@@ -1216,13 +1217,13 @@ endif
 # android-arm
 #-------------------------------------------------
 
-$(PROJECTDIR_SDL)/$(MAKETYPE)-android-arm/Makefile: makefile $(SCRIPTS) $(GENIE)
-	$(SILENT) $(GENIE) $(PARAMS) --gcc=android-arm --gcc_version=$(CLANG_VERSION) --osd=sdl --targetos=android --PLATFORM=arm --NOASM=1 $(MAKETYPE)
+$(PROJECTDIR)/$(MAKETYPE)-android-arm/Makefile: makefile $(SCRIPTS) $(GENIE)
+	$(SILENT) $(GENIE) $(PARAMS) --gcc=android-arm --gcc_version=$(CLANG_VERSION) --osd=myosd --targetos=android --PLATFORM=arm --NOASM=1 $(MAKETYPE)
 
 .PHONY: android-arm
-android-arm: android-ndk generate $(PROJECTDIR_SDL)/$(MAKETYPE)-android-arm/Makefile
-	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR_SDL)/$(MAKETYPE)-android-arm config=$(CONFIG) precompile
-	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR_SDL)/$(MAKETYPE)-android-arm config=$(CONFIG)
+android-arm: android-ndk generate $(PROJECTDIR)/$(MAKETYPE)-android-arm/Makefile
+	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR)/$(MAKETYPE)-android-arm config=$(CONFIG) precompile
+	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR)/$(MAKETYPE)-android-arm config=$(CONFIG)
 
 #-------------------------------------------------
 # android-arm64
@@ -1240,25 +1241,25 @@ android-arm64: android-ndk generate $(PROJECTDIR)/$(MAKETYPE)-android-arm64/Make
 # android-x86
 #-------------------------------------------------
 
-$(PROJECTDIR_SDL)/$(MAKETYPE)-android-x86/Makefile: makefile $(SCRIPTS) $(GENIE)
-	$(SILENT) $(GENIE) $(PARAMS) --gcc=android-x86 --gcc_version=$(CLANG_VERSION) --osd=sdl --targetos=android --PLATFORM=x86 $(MAKETYPE)
+$(PROJECTDIR)/$(MAKETYPE)-android-x86/Makefile: makefile $(SCRIPTS) $(GENIE)
+	$(SILENT) $(GENIE) $(PARAMS) --gcc=android-x86 --gcc_version=$(CLANG_VERSION) --osd=myosd --targetos=android --PLATFORM=x86 $(MAKETYPE)
 
 .PHONY: android-x86
-android-x86: android-ndk generate $(PROJECTDIR_SDL)/$(MAKETYPE)-android-x86/Makefile
-	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR_SDL)/$(MAKETYPE)-android-x86 config=$(CONFIG) precompile
-	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR_SDL)/$(MAKETYPE)-android-x86 config=$(CONFIG)
+android-x86: android-ndk generate $(PROJECTDIR)/$(MAKETYPE)-android-x86/Makefile
+	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR)/$(MAKETYPE)-android-x86 config=$(CONFIG) precompile
+	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR)/$(MAKETYPE)-android-x86 config=$(CONFIG)
 
 #-------------------------------------------------
 # android-x64
 #-------------------------------------------------
 
-$(PROJECTDIR_SDL)/$(MAKETYPE)-android-x64/Makefile: makefile $(SCRIPTS) $(GENIE)
-	$(SILENT) $(GENIE) $(PARAMS) --gcc=android-x64 --gcc_version=$(CLANG_VERSION) --osd=sdl --targetos=android --PLATFORM=x64 $(MAKETYPE)
+$(PROJECTDIR)/$(MAKETYPE)-android-x64/Makefile: makefile $(SCRIPTS) $(GENIE)
+	$(SILENT) $(GENIE) $(PARAMS) --gcc=android-x64 --gcc_version=$(CLANG_VERSION) --osd=myosd --targetos=android --PLATFORM=x64 $(MAKETYPE)
 
 .PHONY: android-x64
-android-x64: android-ndk generate $(PROJECTDIR_SDL)/$(MAKETYPE)-android-x64/Makefile
-	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR_SDL)/$(MAKETYPE)-android-x64 config=$(CONFIG) precompile
-	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR_SDL)/$(MAKETYPE)-android-x64 config=$(CONFIG)
+android-x64: android-ndk generate $(PROJECTDIR)/$(MAKETYPE)-android-x64/Makefile
+	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR)/$(MAKETYPE)-android-x64 config=$(CONFIG) precompile
+	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR)/$(MAKETYPE)-android-x64 config=$(CONFIG)
 
 #-------------------------------------------------
 # asmjs / Emscripten

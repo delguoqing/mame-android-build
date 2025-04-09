@@ -68,6 +68,8 @@ import com.seleuco.mame4droid.input.InputHandler;
 import com.seleuco.mame4droid.views.IEmuView;
 import com.seleuco.mame4droid.views.InputView;
 
+import java.io.File;
+
 public class MAME4droid extends Activity {
 
 	protected View emuView = null;
@@ -114,6 +116,11 @@ public class MAME4droid extends Activity {
 		return inputHandler;
 	}
 
+	public boolean isSoExists(String libName) {
+		String path = getApplicationInfo().nativeLibraryDir + "/lib" + libName + ".so";
+		return new File(path).exists();
+	}
+
 	/**
 	 * Called when the activity is first created.
 	 */
@@ -124,7 +131,7 @@ public class MAME4droid extends Activity {
 
 		//android.os.Debug.waitForDebugger();
 
-		Log.d("EMULATOR", "onCreate " + this);
+		Log.d("EMULATOR", "onCreate " + this + ", so existed?" + isSoExists("MAME4droid"));
 		System.out.println("onCreate intent:" + getIntent().getAction());
 
 		overridePendingTransition(0, 0);
@@ -249,7 +256,6 @@ public class MAME4droid extends Activity {
 
 		Emulator.emulate(mainHelper.getLibDir(), mainHelper.getInstallationDIR());
 	}
-
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {

@@ -643,6 +643,7 @@ public class Emulator {
 				}
 				Log.d(TAG,"priority after change = " + android.os.Process.getThreadPriority(tid));
 
+				Log.d(TAG, "emulating " + libPath + ", " + resPath);
 				boolean extROM = false;
 				isEmulating = true;
 				Size sz = mm.getMainHelper().getWindowSize();

@@ -110,37 +110,37 @@ static void load_lib(const char *str)
     }
 
     android_main = dlsym(libdl, "myosd_droid_main");
-     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_main %d\n", android_main!=NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_main %d\n", android_main!=NULL);
 
     setVideoCallbacks = dlsym(libdl, "myosd_droid_setVideoCallbacks");
-     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setVideoCallbacks %d\n", setVideoCallbacks!=NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setVideoCallbacks %d\n", setVideoCallbacks!=NULL);
 
     setAudioCallbacks = dlsym(libdl, "myosd_droid_setAudioCallbacks");
-     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setAudioCallbacks %d\n", setAudioCallbacks!=NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setAudioCallbacks %d\n", setAudioCallbacks!=NULL);
 
     setInputCallbacks = dlsym(libdl, "myosd_droid_setInputCallbacks");
     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setInputCallbacks %d\n", setInputCallbacks!=NULL);
 
     setDigitalData = dlsym(libdl, "myosd_droid_setDigitalData");
-     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setDigitalData %d\n", setDigitalData!=NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setDigitalData %d\n", setDigitalData!=NULL);
 
     initMyOSD = dlsym(libdl, "myosd_droid_initMyOSD");
-     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_iinitMyOSD %d\n", initMyOSD!=NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_iinitMyOSD %d\n", initMyOSD!=NULL);
 
     setMyValue = dlsym(libdl, "myosd_droid_setMyValue");
-     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setMyValue %d\n",setMyValue!=NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setMyValue %d\n",setMyValue!=NULL);
 
     getMyValue = dlsym(libdl, "myosd_droid_getMyValue");
-     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_getMyValue %d\n", getMyValue!=NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_getMyValue %d\n", getMyValue!=NULL);
 
     setMyValueStr = dlsym(libdl, "myosd_droid_setMyValueStr");
-     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setMyValueStr %d\n",setMyValueStr!=NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setMyValueStr %d\n",setMyValueStr!=NULL);
 
     getMyValueStr = dlsym(libdl, "myosd_droid_getMyValueStr");
-     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_getMyValueStr %d\n", getMyValueStr!=NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_getMyValueStr %d\n", getMyValueStr!=NULL);
 
     setAnalogData = dlsym(libdl, "myosd_droid_setAnalogData");
-     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setAnalogData %d\n", setAnalogData!=NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","myosd_droid_setAnalogData %d\n", setAnalogData!=NULL);
 
     setSAFCallbacks = dlsym(libdl, "myosd_droid_setSAFCallbacks");
     __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni","setSAFCallbacks %d\n", setSAFCallbacks!=NULL);
@@ -180,7 +180,7 @@ void myJNI_dumpVideo()
     //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "dumpVideo");
 #endif
 
-   (*env)->CallStaticVoidMethod(env, cEmulator,  android_dumpVideo, videoBuffer);
+    (*env)->CallStaticVoidMethod(env, cEmulator,  android_dumpVideo, videoBuffer);
 }
 
 void myJNI_changeVideo(int newWidth, int newHeight, int newVisWidth, int newVisHeight)
@@ -266,11 +266,11 @@ int myJNI_safOpenFile(const char *pathName,const char *mode)
     int attached  = 0;
 
 #ifdef DEBUG
-//    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safOpenFile");
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safOpenFile");
 #endif
     if(pathName!=NULL)
     {
-        //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safOpen %s %s\n",pathName,mode);
+        __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safOpen %s %s\n",pathName,mode);
         if(env==NULL)
         {
             attached  = 1;
@@ -297,11 +297,11 @@ int myJNI_safReadDir(const char *dirName, int reload)
     int attached  = 0;
 
 #ifdef DEBUG
-    //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safReadDir");
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safReadDir");
 #endif
     if(dirName!=NULL)
     {
-        //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safReadDir %s reload %d\n",dirName, reload);
+        __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safReadDir %s reload %d\n",dirName, reload);
         if(env==NULL)
         {
             attached  = 1;
@@ -327,11 +327,11 @@ char **myJNI_safGetNextDirEntry(int id)
     int attached  = 0;
 
 #ifdef DEBUG
-    //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safGetNextDirEntry");
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safGetNextDirEntry");
 #endif
     if(id!=0)
     {
-        //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safGetNextDirEntry %d\n",id);
+        __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safGetNextDirEntry %d\n",id);
         if(env==NULL)
         {
             attached  = 1;
@@ -375,11 +375,11 @@ void myJNI_safCloseDir(int id)
     int attached  = 0;
 
 #ifdef DEBUG
-    //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safCloseDir");
+    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safCloseDir");
 #endif
     if(id!=0)
     {
-        //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safCloseDir %d\n",id);
+        __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "safCloseDir %d\n",id);
         if(env==NULL)
         {
             attached  = 1;
@@ -512,189 +512,189 @@ void* app_Thread_Start(void* args)
 }
 
 JNIEXPORT void JNICALL Java_com_seleuco_mame4droid_Emulator_init
-  (JNIEnv *env, jclass c,  jstring s1, jstring s2,jint nativeWidth, jint nativeHeight)
+(JNIEnv *env, jclass c,  jstring s1, jstring s2,jint nativeWidth, jint nativeHeight)
 {
-    __android_log_print(ANDROID_LOG_INFO, "mame4droid-jni", "init");
+__android_log_print(ANDROID_LOG_INFO, "mame4droid-jni", "init");
 
-    const char *str1 = (*env)->GetStringUTFChars(env, s1, 0);
+const char *str1 = (*env)->GetStringUTFChars(env, s1, 0);
 
-    load_lib(str1);
+load_lib(str1);
 
-    (*env)->ReleaseStringUTFChars(env, s1, str1);
+(*env)->ReleaseStringUTFChars(env, s1, str1);
 
-    __android_log_print(ANDROID_LOG_INFO, "mame4droid-jni","calling setVideoCallbacks");
-    if(setVideoCallbacks!=NULL)
-        setVideoCallbacks(&myJNI_initVideo,&myJNI_dumpVideo,&myJNI_changeVideo);
+__android_log_print(ANDROID_LOG_INFO, "mame4droid-jni","calling setVideoCallbacks");
+if(setVideoCallbacks!=NULL)
+setVideoCallbacks(&myJNI_initVideo,&myJNI_dumpVideo,&myJNI_changeVideo);
 
-    __android_log_print(ANDROID_LOG_INFO, "mame4droid-jni","calling setAudioCallbacks");
-    if(setAudioCallbacks!=NULL)
-       setAudioCallbacks(&myJNI_openAudio,&myJNI_dumpAudio,&myJNI_closeAudio);
+__android_log_print(ANDROID_LOG_INFO, "mame4droid-jni","calling setAudioCallbacks");
+if(setAudioCallbacks!=NULL)
+setAudioCallbacks(&myJNI_openAudio,&myJNI_dumpAudio,&myJNI_closeAudio);
 
-    __android_log_print(ANDROID_LOG_INFO, "mame4droid-jni","calling setInputCallbacks");
-    if(setInputCallbacks!=NULL)
-        setInputCallbacks(&myJNI_initInput);
+__android_log_print(ANDROID_LOG_INFO, "mame4droid-jni","calling setInputCallbacks");
+if(setInputCallbacks!=NULL)
+setInputCallbacks(&myJNI_initInput);
 
-    __android_log_print(ANDROID_LOG_INFO, "mame4droid-jni","calling setSAFCallbacks");
-    if(setSAFCallbacks!=NULL)
-        setSAFCallbacks(&myJNI_safOpenFile,&myJNI_safReadDir,&myJNI_safGetNextDirEntry,&myJNI_safCloseDir);
+__android_log_print(ANDROID_LOG_INFO, "mame4droid-jni","calling setSAFCallbacks");
+if(setSAFCallbacks!=NULL)
+setSAFCallbacks(&myJNI_safOpenFile,&myJNI_safReadDir,&myJNI_safGetNextDirEntry,&myJNI_safCloseDir);
 
-    const char *str2 = (*env)->GetStringUTFChars(env, s2, 0);
+const char *str2 = (*env)->GetStringUTFChars(env, s2, 0);
 
-    __android_log_print(ANDROID_LOG_INFO, "mame4droid-jni", "path %s",str2);
+__android_log_print(ANDROID_LOG_INFO, "mame4droid-jni", "path %s",str2);
 
-    if(initMyOSD!=NULL) {
-        initMyOSD(str2,nativeWidth, nativeHeight);
-    } else{
-        __android_log_print(ANDROID_LOG_ERROR, "mame4droid-jni","Not initMyOSD!!!");
-    }
+if(initMyOSD!=NULL) {
+initMyOSD(str2,nativeWidth, nativeHeight);
+} else{
+__android_log_print(ANDROID_LOG_ERROR, "mame4droid-jni","Not initMyOSD!!!");
+}
 
-    (*env)->ReleaseStringUTFChars(env, s2, str2);
+(*env)->ReleaseStringUTFChars(env, s2, str2);
 
-    //int i = pthread_create(&main_tid, NULL, app_Thread_Start, NULL);
+//int i = pthread_create(&main_tid, NULL, app_Thread_Start, NULL);
 
-    //if(i!=0)__android_log_print(ANDROID_LOG_ERROR, "mame4droid-jni", "Error setting creating pthread %d",i);
-    //struct sched_param    param;
-    //param.sched_priority = 63;
-    //param.sched_priority = 46;
-    //param.sched_priority = 100;
-    /*
-    if(pthread_setschedparam(main_tid, SCHED_RR, &param) != 0)
-    {
-        __android_log_print(ANDROID_LOG_ERROR, "mame4droid-jni", "Error setting pthread priority");
-        return;
-    }
-    */
+//if(i!=0)__android_log_print(ANDROID_LOG_ERROR, "mame4droid-jni", "Error setting creating pthread %d",i);
+//struct sched_param    param;
+//param.sched_priority = 63;
+//param.sched_priority = 46;
+//param.sched_priority = 100;
+/*
+if(pthread_setschedparam(main_tid, SCHED_RR, &param) != 0)
+{
+    __android_log_print(ANDROID_LOG_ERROR, "mame4droid-jni", "Error setting pthread priority");
+    return;
+}
+*/
 }
 
 JNIEXPORT void JNICALL Java_com_seleuco_mame4droid_Emulator_setDigitalData
-  (JNIEnv *env, jclass c, jint i,  jlong jl)
+(JNIEnv *env, jclass c, jint i,  jlong jl)
 {
-    //long 	jlong 	signed 64 bits ??? valdria con un jint
-    //__android_log_print(ANDROID_LOG_INFO, "mame4droid-jni", "setPadData");
+//long 	jlong 	signed 64 bits ??? valdria con un jint
+//__android_log_print(ANDROID_LOG_INFO, "mame4droid-jni", "setPadData");
 
-    unsigned long l = (unsigned long)jl;
+unsigned long l = (unsigned long)jl;
 
-    if(setDigitalData!=NULL)
-       setDigitalData(i,l);
-    else
-      __android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setDigitalData!");
+if(setDigitalData!=NULL)
+setDigitalData(i,l);
+else
+__android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setDigitalData!");
 }
 
 JNIEXPORT void JNICALL Java_com_seleuco_mame4droid_Emulator_setAnalogData
-  (JNIEnv *env, jclass c, jint i, jfloat v1, jfloat v2)
+(JNIEnv *env, jclass c, jint i, jfloat v1, jfloat v2)
 {
-    if(setAnalogData!=NULL)
-       setAnalogData(i,v1,v2);
-    else
-      __android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setAnalogData!");
+if(setAnalogData!=NULL)
+setAnalogData(i,v1,v2);
+else
+__android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setAnalogData!");
 }
 
 JNIEXPORT jint JNICALL Java_com_seleuco_mame4droid_Emulator_getValue
-  (JNIEnv *env, jclass c, jint key, jint i)
+        (JNIEnv *env, jclass c, jint key, jint i)
 {
 #ifdef DEBUG
-   // __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "getValue %d",key);
+// __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "getValue %d",key);
 #endif
-      if(getMyValue!=NULL)
-         return getMyValue(key,i);
-      else
-      {
-         __android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no getMyValue! key:%d:%d",key,i);
-         return -1;
-      }
+if(getMyValue!=NULL)
+return getMyValue(key,i);
+else
+{
+__android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no getMyValue! key:%d:%d",key,i);
+return -1;
+}
 }
 
 JNIEXPORT void JNICALL Java_com_seleuco_mame4droid_Emulator_setValue
-  (JNIEnv *env, jclass c, jint key, jint i, jint value)
+(JNIEnv *env, jclass c, jint key, jint i, jint value)
 {
 #ifdef DEBUG
-    //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "setValue %d,%d=%d",key,i,value);
+//__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "setValue %d,%d=%d",key,i,value);
 #endif
-    if(setMyValue!=NULL)
-      setMyValue(key,i,value);
-    else
-      __android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setMyValue!");
+if(setMyValue!=NULL)
+setMyValue(key,i,value);
+else
+__android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setMyValue!");
 }
 
 JNIEXPORT jstring JNICALL Java_com_seleuco_mame4droid_Emulator_getValueStr
-  (JNIEnv *env, jclass c, jint key, jint i)
+        (JNIEnv *env, jclass c, jint key, jint i)
 {
 #ifdef DEBUG
-   // __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "getValueStr %d",key);
+// __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "getValueStr %d",key);
 #endif
-      if(getMyValueStr!=NULL)
-      {
-         const char * r =  getMyValueStr(key,i);
-         return (*env)->NewStringUTF(env,r);
-      }
-      else
-      {
-         __android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no getMyValueStr!");
-         return NULL;
-      }
+if(getMyValueStr!=NULL)
+{
+const char * r =  getMyValueStr(key,i);
+return (*env)->NewStringUTF(env,r);
+}
+else
+{
+__android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no getMyValueStr!");
+return NULL;
+}
 }
 
 JNIEXPORT void JNICALL Java_com_seleuco_mame4droid_Emulator_setValueStr
-  (JNIEnv *env, jclass c, jint key, jint i, jstring s1)
+(JNIEnv *env, jclass c, jint key, jint i, jstring s1)
 {
-    if(setMyValueStr!=NULL)
-    {
-       const char *value = (*env)->GetStringUTFChars(env, s1, 0);
+if(setMyValueStr!=NULL)
+{
+const char *value = (*env)->GetStringUTFChars(env, s1, 0);
 #ifdef DEBUG
-    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "setValueStr %d,%d=%s",key,i,value);
+__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "setValueStr %d,%d=%s",key,i,value);
 #endif
-       setMyValueStr(key,i,value);
-       (*env)->ReleaseStringUTFChars(env, s1, value);
-    }
-    else
-      __android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setMyValueStr!");
+setMyValueStr(key,i,value);
+(*env)->ReleaseStringUTFChars(env, s1, value);
+}
+else
+__android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setMyValueStr!");
 }
 
 JNIEXPORT void JNICALL Java_com_seleuco_mame4droid_Emulator_runT
-  (JNIEnv *env, jclass c){
+(JNIEnv *env, jclass c){
 #ifdef DEBUG
-    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "runThread");
+__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "runThread");
 #endif
-    if(android_main!=NULL)
-       android_main(0, NULL);
-    else
-       __android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no android main!");
+if(android_main!=NULL)
+android_main(0, NULL);
+else
+__android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no android main!");
 }
 
 JNIEXPORT int JNICALL Java_com_seleuco_mame4droid_Emulator_setKeyData
-        (JNIEnv *env, jclass c, jint keyCode, jint keyAction, jchar keyChar){
+(JNIEnv *env, jclass c, jint keyCode, jint keyAction, jchar keyChar){
 #ifdef DEBUG
-     //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "setKeyData %d %d %c",keyCode, keyAction, keyChar);
+//__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "setKeyData %d %d %c",keyCode, keyAction, keyChar);
 #endif
-    if(setKeyData!=NULL)
-        return setKeyData(keyCode, keyAction , keyChar);
-    else
-        __android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setKeyData!");
-    return 0;
+if(setKeyData!=NULL)
+return setKeyData(keyCode, keyAction , keyChar);
+else
+__android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setKeyData!");
+return 0;
 }
 
 JNIEXPORT jint JNICALL Java_com_seleuco_mame4droid_Emulator_setMouseData
         (JNIEnv *env, jclass c, jint i, jint mouseAction, jint button, jfloat cx, jfloat cy){
 #ifdef DEBUG
-    //__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "setMouseData %d %d %d",mouseAction, cx, cy);
+//__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "setMouseData %d %d %d",mouseAction, cx, cy);
 #endif
-    if(setMouseData!=NULL)
-        return setMouseData(i, mouseAction, button , cx, cy);
-    else
-        __android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setMouseData!");
-    return 0;
+if(setMouseData!=NULL)
+return setMouseData(i, mouseAction, button , cx, cy);
+else
+__android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setMouseData!");
+return 0;
 }
 
 JNIEXPORT jint JNICALL Java_com_seleuco_mame4droid_Emulator_setTouchData
         (JNIEnv *env, jclass c, jint i, jint touchAction, jfloat cx, jfloat cy){
 #ifdef DEBUG
-    __android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "setTouchData %d %d %d",touchAction, cx, cy);
+__android_log_print(ANDROID_LOG_DEBUG, "mame4droid-jni", "setTouchData %d %d %d",touchAction, cx, cy);
 #endif
-    if(setTouchData!=NULL)
-        return setTouchData(i, touchAction, cx, cy);
-    else
-        __android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setTouchData!");
-    return 0;
+if(setTouchData!=NULL)
+return setTouchData(i, touchAction, cx, cy);
+else
+__android_log_print(ANDROID_LOG_WARN, "mame4droid-jni", "error no setTouchData!");
+return 0;
 }
 
 

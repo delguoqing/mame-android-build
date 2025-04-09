@@ -71,7 +71,7 @@ typedef unsigned __int32 uintptr_t;
 
 #define XML_BUILDING_EXPAT 1
 
-#define XML_POOR_ENTROPY
+#define XML_POOR_ENTROPY 1
 
 #ifdef _WIN32
 #  include "winconfig.h"

@@ -221,15 +221,17 @@ const osd::directory::entry *posix_directory::read() {
 bool posix_directory::open_impl(std::string const &dirname)
 {
 
-    //__android_log_print(ANDROID_LOG_DEBUG, "mame42024", "Reading directory %s",dirname.c_str());
+    __android_log_print(ANDROID_LOG_DEBUG, "mame42024", "Reading directory %s",dirname.c_str());
 
     if(myosd_droid_using_saf == 1 && dirname.find(myosd_droid_safpath)!=std::string::npos && dirname.find(myosd_droid_safpath) == 0) {
         assert(!m_saf_fd);
 
-        //__android_log_print(ANDROID_LOG_DEBUG, "mame4", "USING SAF readdir....");
+        __android_log_print(ANDROID_LOG_DEBUG, "mame4", "USING SAF readdir....");
 
         m_path = dirname;
         m_saf_fd.reset(::myosd_safReadDir(m_path.c_str(),1));
+
+		__android_log_print(ANDROID_LOG_DEBUG, "mame4", "Open directory result: %d", bool(m_saf_fd));
 
         return bool(m_saf_fd);
     }

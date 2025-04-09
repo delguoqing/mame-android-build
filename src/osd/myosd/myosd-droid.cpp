@@ -462,7 +462,7 @@ int myosd_droid_getMyValue(int key, int i) {
 }
 
 void myosd_droid_setMyValueStr(int key, int i, const char *value) {
-    //__android_log_print(ANDROID_LOG_DEBUG, "libMAME4droid.so", "setMyValueStr  %d,%d:%s",key,i,value);
+    __android_log_print(ANDROID_LOG_DEBUG, "libMAME4droid.so", "setMyValueStr  %d,%d:%s",key,i,value);
     switch (key) {
         case com_seleuco_mame4droid_Emulator_SAF_PATH: {
             myosd_droid_safpath = std::string(value);

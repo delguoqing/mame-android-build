@@ -26,6 +26,7 @@
         android:usesCleartextTraffic="true"
         android:allowBackup="false"
         android:hasFragileUserData="true"
+		android:extractNativeLibs="true"
         >
 <!-- META QUEST -->
 <!--
