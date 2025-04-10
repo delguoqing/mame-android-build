@@ -116,6 +116,8 @@ extern "C" int myosd_main(int argc, char** argv, myosd_callbacks* callbacks, siz
 
     // tons of code in MAME does a unsafe downcast from emu_options to osd_options, be carefull
     // ...(we need to to have video, and sound in options entries)
+    // We should use osd_options here, but there would introduce a lot of dependencies.
+    // Fortunately, emu_options and osd_options have the same memory layout, so we'll be fine.
     emu_options options;
     options.add_entries(s_option_entries);
     osdInterface = new my_osd_interface(options, host_callbacks);

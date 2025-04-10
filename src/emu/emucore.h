@@ -300,9 +300,10 @@ inline Dest downcast(Source *src)
 template<class Dest, class Source>
 inline Dest downcast(Source &src)
 {
-#if defined(MAME_DEBUG)
-	// std::remove_reference_t<Dest> *const chk(dynamic_cast<std::remove_reference_t<Dest> *>(&src));
-	// if (chk != &src) report_bad_cast<std::remove_reference_t<Dest>, Source>(&src);
+	// Android: see myosdmain.cpp:117
+#if defined(MAME_DEBUG) && !defined(__ANDROID__)
+	std::remove_reference_t<Dest> *const chk(dynamic_cast<std::remove_reference_t<Dest> *>(&src));
+	if (chk != &src) report_bad_cast<std::remove_reference_t<Dest>, Source>(&src);
 #endif
 	return static_cast<Dest>(src);
 }
