@@ -76,9 +76,6 @@ end
 	configuration { }
 
 	if _OPTIONS["targetos"]=="android" then
-		-- files {
-		-- 	MAME_DIR .. "src/myosd/myosdmain.cpp",
-		-- }
 		targetsuffix ""
 		if _OPTIONS["SEPARATE_BIN"]~="1" then
 			if _OPTIONS["PLATFORM"]=="arm" then
