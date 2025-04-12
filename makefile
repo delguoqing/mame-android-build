@@ -1204,7 +1204,7 @@ endif
 # 	$(error SDL_INSTALL_ROOT is not set)
 # endif
 ifeq ($(OS),windows)
-	$(eval CLANG_VERSION := $(shell $(ANDROID_NDK_HOME)\toolchains\llvm\prebuilt\windows-x86_64\bin\clang -dumpversion 2> null))
+	$(eval CLANG_VERSION := $(shell $(ANDROID_NDK_HOME)/toolchains/llvm/prebuilt/windows-x86_64/bin/clang -dumpversion 2> null))
 else ifeq ($(OS),linux)
 	$(eval CLANG_VERSION := $(shell $(ANDROID_NDK_HOME)/toolchains/llvm/prebuilt/linux-x86_64/bin/clang -dumpversion 2> /dev/null))
 else ifeq ($(OS),macosx)

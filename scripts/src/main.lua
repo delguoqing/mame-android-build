@@ -79,20 +79,20 @@ end
 		targetsuffix ""
 		if _OPTIONS["SEPARATE_BIN"]~="1" then
 			if _OPTIONS["PLATFORM"]=="arm" then
-				targetdir(MAME_DIR .. "android-project/app/src/main/libs/armeabi-v7a")
-				os.copyfile(androidToolchainRoot() .. "/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so", MAME_DIR .. "android-project/app/src/main/libs/armeabi-v7a/libc++_shared.so")
+				targetdir(MAME_DIR .. "android-MAME4droid/app/src/main/jniLibs/armeabi-v7a")
+				os.copyfile(androidToolchainRoot() .. "/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so", MAME_DIR .. "android-MAME4droid/app/src/main/jniLibs/armeabi-v7a/libc++_shared.so")
 			end
 			if _OPTIONS["PLATFORM"]=="arm64" then
-				targetdir(MAME_DIR .. "android-project/app/src/main/libs/arm64-v8a")
-				os.copyfile(androidToolchainRoot() .. "/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so", MAME_DIR .. "android-project/app/src/main/libs/arm64-v8a/libc++_shared.so")
+				targetdir(MAME_DIR .. "android-MAME4droid/app/src/main/jniLibs/arm64-v8a")
+				os.copyfile(androidToolchainRoot() .. "/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so", MAME_DIR .. "android-MAME4droid/app/src/main/jniLibs/arm64-v8a/libc++_shared.so")
 			end
 			if _OPTIONS["PLATFORM"]=="x86" then
-				targetdir(MAME_DIR .. "android-project/app/src/main/libs/x86")
-				os.copyfile(androidToolchainRoot() .. "/sysroot/usr/lib/i686-linux-android/libc++_shared.so", MAME_DIR .. "android-project/app/src/main/libs/x86/libc++_shared.so")
+				targetdir(MAME_DIR .. "android-MAME4droid/app/src/main/jniLibs/x86")
+				os.copyfile(androidToolchainRoot() .. "/sysroot/usr/lib/i686-linux-android/libc++_shared.so", MAME_DIR .. "android-MAME4droid/app/src/main/jniLibs/x86/libc++_shared.so")
 			end
 			if _OPTIONS["PLATFORM"]=="x64" then
-				targetdir(MAME_DIR .. "android-project/app/src/main/libs/x86_64")
-				os.copyfile(androidToolchainRoot() .. "/sysroot/usr/lib/x86_64-linux-android/libc++_shared.so", MAME_DIR .. "android-project/app/src/main/libs/x86_64/libc++_shared.so")
+				targetdir(MAME_DIR .. "android-MAME4droid/app/src/main/jniLibs/x86_64")
+				os.copyfile(androidToolchainRoot() .. "/sysroot/usr/lib/x86_64-linux-android/libc++_shared.so", MAME_DIR .. "android-MAME4droid/app/src/main/jniLibs/x86_64/libc++_shared.so")
 			end
 		end
 	else
