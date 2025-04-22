@@ -26,11 +26,11 @@ end
 
 	configuration { "android*" }
 		targetprefix "lib"
-		targetname "main"
+		targetname "MAME4droid"
 		targetextension ".so"
 		linkoptions {
 			"-shared",
-			"-Wl,-soname,libmain.so"
+			"-Wl,-soname,libMAME4droid.so"
 		}
 		links {
 			"EGL",
